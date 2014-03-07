@@ -1,0 +1,4 @@
+0.0.1 - Initial Build, Mainpage + Initial Login
+0.0.2 - Logout, About Page
+0.0.3 - Add inventory, Display current inventory
+0.0.4 - Delete inventory items, added changelog page, started JSON autocomplete

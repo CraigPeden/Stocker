@@ -1,0 +1,66 @@
+/*function inventory_delete_item()
+		{
+			$this->load->view('assets/header', array('user' => $this->User_model->get_user_by_id($this->session->userdata('user_id'))));
+			$this->load->view('stocker/sidebar');
+			$this->load->view('stocker/inventory/inventory_delete_item');
+			$this->load->view('assets/footer');
+		}*/
+		
+function inventory_delete_item()
+		{
+		$this->db->delete('inventory', array('product_name' = post('product_name')));
+		}	
+		
+		
+		
+		
+	<div class="content">	
+		<div class="well">
+		   	<form method="post" action="<?php echo site_url('Stocker/inventory_delete_item'); ?>">
+				
+    				<?php if ($this->session->flashdata('success') != "") { ?>
+						<div class="alert-message success fade in" data-alert="alert">
+            				<a class="close" href="#">×</a>
+            				<p><?php echo $this->session->flashdata('success'); ?> Deleted</p>
+        				</div>
+        				<style>
+        				</style> 
+    				<?php } ?>
+					<fieldset>
+		        	<legend>Delete Item</legend>
+			        <div class="clearfix">
+		            	<label for="xlInput">Name</label>
+		            	<div class="input">
+			            	 <input class="xlarge" id="xlInput" name="product_name" size="30" type="text" placeholder="Enter Name">
+		            	</div>
+		          	</div><!-- /clearfix -->
+		          	<div class="clearfix">
+		            	<label for="xlInput">Quantity</label>
+		            	<div class="input">
+			            	<input class="xlarge disabled" id="xlInput" name="product_quantity" size="30" type="text" placeholder="Quantity" disabled>
+			            	<span class="help-inline">Number of items, or weight in kg. (1000g = 1kg)</span>
+		            	</div>
+		          	</div><!-- /clearfix -->
+		          	<div class="clearfix">
+		            	<label for="xlInput">Category</label>
+		            	<div class="input">
+			            	<input class="xlarge disabled" id="xlInput" name="product_category" size="30" type="text" placeholder="Category" disabled>
+		            	</div>
+		          	</div><!-- /clearfix -->
+		          	<div class="clearfix">
+		            	<label for="xlInput">Price</label>
+		            	<div class="input">
+			            	<input class="xlarge disabled" id="xlInput" name="product_price" size="30" type="text" placeholder="Price" disabled>
+			            	<span class="help-inline">Price without any currency sign.</span>
+		            	</div>
+		          	</div><!-- /clearfix -->
+		          
+			        <div class="actions">
+			        	<input type="submit" class="btn primary" value="Add Item">&nbsp;</button>
+			       	</div>
+			        
+			  	</fieldset>       
+			</form>
+		</div>
+	</div>
+</div>
